@@ -18,7 +18,8 @@ class Extract(object):
         '''发起请求获取响应的方法'''
         # 1. 根据请求对象，发起请求，获取响应
         #    判断请求方法：
-
+        method = self.cons.get("method")
+        host = self.cons.get("host")
         for con in self.cons.get('extract'):
             if con.get("form") == "block_list":
                 path = con.get("path")
@@ -36,8 +37,9 @@ class Extract(object):
                 headers = con.get("headers")
                 params = con.get("params")
                 request_data = con.get("data")
-                url = urllib.parse.urljoin(response.url, part_url)
-                yield Request(url)
+                url = urllib.parse.urljoin(host, part_url)
+                print(url)
+                yield Request(url,method=method)
             # else:
             #     pass
             # elif con.get('method') == 'con_url':

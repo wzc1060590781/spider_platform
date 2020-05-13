@@ -15,8 +15,9 @@ class Downloader(object):
         elif request.method.upper() == "POST":
             resp = requests.post(request.url, headers=request.headers, params=request.params, data=request.data)
         elif request.method.upper() == "SPLASH":
-            request.url = 'my_http://117.51.136.240:8050/render.html?url={0}'.format(request.url)
-            resp = requests.get(request.url,headers=request.headers,params=request.params,data=request.data)
+            request.url = 'http://117.51.136.240:8050/render.html?url={0}'.format(request.url)
+            print(request.url)
+            resp = requests.get(request.url)
         else:
             raise Exception("不支持的请求方法：<{}>".format(request.method))
         # logger.info("<{} {}>".format(resp.status_code, resp.request.url))

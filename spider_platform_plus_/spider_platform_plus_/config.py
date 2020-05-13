@@ -137,6 +137,7 @@ con = {
         "url_host":"my_http://zwfw.shaanxi.gov.cn/",
         "url":["http://wz.sun0769.com/political/index/politicsNewest"]
     },
+    "host":"http://wz.sun0769.com/political",
     "method":"get",
     "headers": {},
     # url参数
